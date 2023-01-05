@@ -51,4 +51,4 @@ df['system'] = df.groupby('lbkey')['system'].transform(max)
 df = df.drop_duplicates(subset=['lbkey', 'o_regno_str', 'r_regno_str'], inplace=False, keep='last')
 # 重設index
 df = df.reset_index(drop=True)
-print(df)
+# print(df)

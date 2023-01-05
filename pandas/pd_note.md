@@ -69,9 +69,14 @@ df = df.drop_duplicates(subset=['lbkey', 'o_regno_str', 'r_regno_str'], inplace=
 df = df.reset_index(drop=True)
 ```
 
-
-
-
+# 自定義排序
+```py
+df = pd.DataFrame.from_dict(self.package_data_list, orient='columns', dtype=object)
+list_custom = ['基隆市', '臺北市', '新北市', '桃園市', '新竹市', '新竹縣', '苗栗縣', '臺中市', '彰化縣', '南投縣', '雲林縣', '嘉義市', '嘉義縣', '臺南市', '高雄市', '屏東縣', '臺東縣', '花蓮縣', '宜蘭縣']
+df['city_name'] = df['city_name'].astype('category')
+df['city_name'].cat.set_categories(list_custom, inplace=True)
+df.sort_values(['city_name', 'area_name'], inplace=True)
+```
 
 
 
