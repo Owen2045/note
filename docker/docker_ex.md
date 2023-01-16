@@ -1,4 +1,3 @@
-
 # 檢查安裝是否完成
 sudo docker run hello-world
 
@@ -14,3 +13,5 @@ exit
 # 列出所有映像擋
 sudo docker images
 
+# 參考
+https://joshhu.gitbooks.io/dockercommands/content/Containers/ContainersBasic.html

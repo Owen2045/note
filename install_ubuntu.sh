@@ -40,25 +40,3 @@ python -m pip install --upgrade pip
 pip install -r requirements.txt
 # ~~~~~~~~~~~~~~結束~~~~~~~~~~~~~~
 
-# 使用django
-# 安裝程式
-# sudo apt install memcached -y
-# sudo apt install rabbitmq-server -y
-# sudo apt install redis -y
-
-# 資料表更新
-# python manage.py makemigrations
-# python manage.py migrate
-
-# # 第一次 makemigrations 的動作 ！！
-# python manage.py makemigrations user
-# python manage.py migrate
-
-# python manage.py collectstatic --noinput
-
-# 排程更新
-# python manage.py crontab remove
-# python manage.py crontab add
-
-# 啟動程式
-# python manage.py runserver 8000
