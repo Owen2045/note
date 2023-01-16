@@ -78,9 +78,27 @@ df['city_name'].cat.set_categories(list_custom, inplace=True)
 df.sort_values(['city_name', 'area_name'], inplace=True)
 ```
 
+# apply
+
+```py
+# 被call 的def
+def check_or_type(data, or_str):
+    if len(data[or_str]) == 0:
+        return {}
+    return data[or_str]
+
+def exclude_null(data):
+    if (len(data['owners']) + len(data['rights'])) == 0:
+        return True
+    return False
+
+df = pd.DataFrame(regno_log_qs.values('id', 'owners', 'rights', 'query_time', 'rules'))
+df['exclude'] = df.apply(exclude_null, axis=1)
+# 帶參數
+df['owners'] = df.apply(check_or_type, axis=1, args=('owners', ))
 
 
-
+```
 
 
 

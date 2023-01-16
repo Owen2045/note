@@ -5,18 +5,26 @@ sudo apt remove galera-4
 sudo apt remove galera-3
 apt list --installed | grep -i -E "mariadb|galera"
 ```
-# 重啟
-sudo service mysql restart
-
-# 安裝
-sudo apt install mariadb-server libmysqlclient-dev mysql-common -y 
-
-# 設定root  
-sudo mysql_secure_installation
-
-# 嘗試登入 並創建資料庫
-mysql -u root -p -h 127.0.0.1 -P 3306
+# 重啟 停止 狀態 開啟
 ```bash
+sudo service mysql restart
+sudo service mysql stop
+sudo service mysql status
+sudo service mysql start
+```
+# 安裝
+```bash
+# 安裝 指定版本
+sudo apt-get install software-properties-common -y
+sudo apt-key adv --fetch-keys 'https://mariadb.org/mariadb_release_signing_key.asc'
+sudo add-apt-repository 'deb [arch=amd64,arm64,ppc64el] https://mirrors.xtom.jp/mariadb/repo/10.6/ubuntu 20.04 main'
+                                                                                            (mariadb版本)(ubuntu版本)
+sudo apt-get install mariadb-server mariadb-client -y
+```
+# 設定root  
+```bash
+sudo mysql_secure_installation
+mysql -u root -p -h 127.0.0.1 -P 3306
 sudo mysql -u root
 -> use mysql;
 -> set password for 'root'@'localhost' = password('YOUR_ROOT_PASSWORD_HERE');
@@ -88,4 +96,5 @@ sudo chown 999:docker lbor_v3 -R
 ```
 
 docker exec -ti lbor_django /bin/bash
+
 docker exec -ti lbor_mariadb /bin/bash
